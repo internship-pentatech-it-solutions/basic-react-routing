@@ -20,10 +20,10 @@ const NavItems = [
 const Navbar = () => {
   return (
     <nav>
-      <div>
-        <ul className="flex">
+      <div className="bg-blue-400 p-8">
+        <ul className="flex justify-between">
           {NavItems.map((item, index) => (
-            <li key={index} className="flex items-center">
+            <li key={index} className="text-xl xl:text-2xl">
               <NavLink
                 to={item.url}
                 className={({ isActive }) =>
