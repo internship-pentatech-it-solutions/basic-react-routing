@@ -1,11 +1,14 @@
 import React from "react";
 import DogCard from "../components/DogCard";
+import HomeSlider from "../components/HomeSlider";
+import CompanyList from "../components/CompanyList";
 
 const Home = () => {
   return (
     <div>
-      Home page
-      <DogCard />
+      <HomeSlider />
+      <CompanyList />
+      {/* <DogCard /> */}
     </div>
   );
 };

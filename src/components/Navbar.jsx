@@ -1,6 +1,5 @@
-import React from "react";
-
 import { Link, NavLink } from "react-router-dom";
+
 const NavItems = [
   { name: "Home", url: "/" },
   {
@@ -19,17 +18,17 @@ const NavItems = [
 
 const Navbar = () => {
   return (
-    <nav>
-      <div className="bg-blue-400 p-8">
-        <ul className="flex justify-between">
+    <nav className="hidden lg:block">
+      <div className="">
+        <ul className="flex gap-4 justify-center">
           {NavItems.map((item, index) => (
-            <li key={index} className="text-xl xl:text-2xl">
+            <li key={index} className="">
               <NavLink
                 to={item.url}
                 className={({ isActive }) =>
                   isActive
-                    ? "text-[#ee4d31] flex flex-col items-center"
-                    : "text-[#1a1f51] flex flex-col items-center"
+                    ? "text-[#f5a809] flex flex-col items-center"
+                    : "text-[#ffffff] flex flex-col items-center"
                 }>
                 {item.name}
               </NavLink>
