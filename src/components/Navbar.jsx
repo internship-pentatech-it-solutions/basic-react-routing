@@ -3,16 +3,16 @@ import { Link, NavLink } from "react-router-dom";
 const NavItems = [
   { name: "Home", url: "/" },
   {
-    name: "about",
+    name: "Shop",
+    url: "/shop",
+  },
+  {
+    name: "About Us",
     url: "/about",
   },
   {
-    name: "contact",
+    name: "Contact Us",
     url: "/contact",
-  },
-  {
-    name: "shop",
-    url: "/shop",
   },
 ];
 

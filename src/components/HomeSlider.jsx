@@ -88,7 +88,7 @@ const HomeSlider = () => {
   }, [images.length]);
 
   return (
-    <div className="overflow-hidden relative max-w-[1280px] mx-auto mt-[13rem]">
+    <div className="custom-width overflow-hidden relative mt-[13rem]">
       <AnimatePresence>
         <motion.img
           key={currentIndex}

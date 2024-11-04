@@ -18,13 +18,11 @@ const Footer = () => {
         </div>
 
         <div>
-          <h2>
-            Follow Mattress Home <BsTwitterX />
-          </h2>
-          <ul className="text-white">
-            {SocialItems.map((item, index) => (
+          <h2>Follow Mattress Home</h2>
+          <ul className="text-white flex">
+            {SocialItems.map((social, index) => (
               <li key={index}>
-                <Link to={item.url}>{item.icon}</Link>
+                <Link to={social.url}>{social.icon}</Link>
               </li>
             ))}
           </ul>
@@ -63,17 +61,17 @@ const NavItems = [
 ];
 
 const SocialItems = [
-  { icon: FaFacebook, url: "/" },
+  { icon: <FaFacebook />, url: "/" },
   {
-    icon: BsTwitterX,
+    icon: <BsTwitterX />,
     url: "/",
   },
   {
-    icon: FaInstagram,
+    icon: <FaInstagram />,
     url: "/",
   },
   {
-    icon: FaLinkedin,
+    icon: <FaLinkedin />,
     url: "/",
   },
 ];

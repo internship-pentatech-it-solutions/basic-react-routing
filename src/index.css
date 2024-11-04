@@ -9,3 +9,7 @@
 body {
   background-color: #f0eeee;
 }
+
+.custom-width {
+  @apply max-w-screen-xl mx-auto px-8;
+}

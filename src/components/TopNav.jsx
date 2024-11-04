@@ -5,7 +5,7 @@ import SearchBar from "./SearchBar";
 
 const TopNav = () => {
   return (
-    <div className="py-8">
+    <div className="custom-width py-8">
       <div className="flex justify-between items-center flex-wrap">
         <div className="lg:hidden">
           <button>
