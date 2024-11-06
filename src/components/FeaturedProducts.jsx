@@ -17,7 +17,7 @@ const FeaturedProducts = () => {
           Take a look at our trending products. Browse through and see what
           other people are buying
         </p>
-        <div>
+        <div className="grid gap-8 grid-cols-2 lg:grid-cols-4">
           {LimitProducts.map((product) => (
             <div key={product.id}>
               <div>
