@@ -5,6 +5,7 @@ import {
   createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom";
+import { ProductProvider } from "./context/ProductContext";
 
 // pages
 import MainLayOut from "./MainLayOut";
@@ -26,7 +27,11 @@ const router = createBrowserRouter(
 );
 
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <ProductProvider>
+      <RouterProvider router={router} />;
+    </ProductProvider>
+  );
 };
 
 export default App;
