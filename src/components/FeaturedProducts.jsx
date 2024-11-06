@@ -1,11 +1,13 @@
-import { div } from "framer-motion/client";
 import { useProductContext } from "../context/ProductContext";
 
 const FeaturedProducts = () => {
-  const { products, loading, error } = useProductContext();
+  const { LimitProducts, loading, error } = useProductContext();
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
+  console.log(LimitProducts);
+
+  const url = "https://ecommerce-api.event-pulse.com";
 
   return (
     <section>
@@ -16,9 +18,22 @@ const FeaturedProducts = () => {
           other people are buying
         </p>
         <div>
-          {/* {products.map((product) => (
-            <p>{product.name}</p>
-          ))} */}
+          {LimitProducts.map((product) => (
+            <div key={product.id}>
+              <div>
+                {product.pictures && product.pictures.length > 0 ? (
+                  <img
+                    src={`${url}/${product.pictures[0].image_path}`}
+                    alt={product.name}
+                    style={{ width: "200px", height: "auto" }}
+                  />
+                ) : (
+                  <p>No image available</p>
+                )}
+              </div>
+              <p>{product.name}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

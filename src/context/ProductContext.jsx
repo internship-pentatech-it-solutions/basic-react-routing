@@ -5,6 +5,7 @@ const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
+  const [LimitProducts, setLimitProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -14,6 +15,18 @@ export const ProductProvider = ({ children }) => {
       setLoading(true);
       const response = await api.get("/products");
       setProducts(response.data.products);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const fetchProductsByLimit = async () => {
+    try {
+      setLoading(true);
+      const response = await api.get("/products/limit/8");
+      setLimitProducts(response.data.products);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -32,11 +45,13 @@ export const ProductProvider = ({ children }) => {
 
   useEffect(() => {
     fetchProducts();
+    fetchProductsByLimit();
     fetchCategories();
   }, []);
 
   return (
-    <ProductContext.Provider value={{ products, categories, loading, error }}>
+    <ProductContext.Provider
+      value={{ products, categories, LimitProducts, loading, error }}>
       {children}
     </ProductContext.Provider>
   );
