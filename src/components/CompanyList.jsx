@@ -8,14 +8,14 @@ import sleepscience from "../assets/images/sleepscience.jpg";
 const CompanyList = () => {
   return (
     <div className="mt-10 mx-auto">
-      <div className="custom-width grid md:grid-cols-2 gap-4">
+      <div className="custom-width grid sm:grid-cols-2 gap-4">
         {companies.map((company, index) => (
-          <div key={index} className="flex flex-col md:flex-row bg-white">
-            <div>
+          <div key={index} className="grid lg:grid-cols-2 bg-white">
+            <div className="w-full">
               <img
                 src={company.img}
                 alt={company.desc}
-                className="h-[100] w-full md:w-[300px] object-cover"
+                className="w-full h-[200px] sm:h-[250px]"
               />
             </div>
             <div className="flex flex-col justify-between p-8">

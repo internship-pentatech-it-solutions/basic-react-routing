@@ -13,14 +13,16 @@ import HomePage from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./Pages/Contact";
 import Shop from "./pages/Shop";
+import ProductPage from "./pages/ProductPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<MainLayOut />}>
       <Route index element={<HomePage />} />
-      <Route path="about" element={<About />} />
-      <Route path="contact" element={<Contact />} />
-      <Route path="shop" element={<Shop />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/shop" element={<Shop />} />
+      <Route path="/product/:id" element={<ProductPage />} />
       <Route path="*" element={<h1>Page Unavailable</h1>} />
     </Route>
   )
