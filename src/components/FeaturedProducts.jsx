@@ -6,9 +6,8 @@ const FeaturedProducts = () => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
-  console.log(LimitProducts);
 
-  const url = "https://ecommerce-api.event-pulse.com";
+  const url = import.meta.env.VITE_BASE_URL;
 
   return (
     <section>

@@ -5,11 +5,13 @@ const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
+  const [product, setProduct] = useState(null); // Updated: Default is null
   const [LimitProducts, setLimitProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Fetch all products
   const fetchProducts = async () => {
     try {
       setLoading(true);
@@ -22,6 +24,20 @@ export const ProductProvider = ({ children }) => {
     }
   };
 
+  // Fetch product details by ID
+  const fetchProductDetails = async (id) => {
+    try {
+      setLoading(true);
+      const response = await api.get(`/products/${id}`); // Dynamic ID
+      setProduct(response.data.product);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Fetch products with a limit
   const fetchProductsByLimit = async () => {
     try {
       setLoading(true);
@@ -34,15 +50,17 @@ export const ProductProvider = ({ children }) => {
     }
   };
 
+  // Fetch categories
   const fetchCategories = async () => {
     try {
       const response = await api.get("/categories");
-      setCategories(response.data);
+      setCategories(response.data.categories);
     } catch (err) {
       setError(err.message);
     }
   };
 
+  // Fetch initial data
   useEffect(() => {
     fetchProducts();
     fetchProductsByLimit();
@@ -51,7 +69,16 @@ export const ProductProvider = ({ children }) => {
 
   return (
     <ProductContext.Provider
-      value={{ products, categories, LimitProducts, loading, error }}>
+      value={{
+        products,
+        product,
+        categories,
+        LimitProducts,
+        loading,
+        error,
+        fetchProductDetails,
+        fetchProducts,
+      }}>
       {children}
     </ProductContext.Provider>
   );
