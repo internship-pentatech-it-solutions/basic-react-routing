@@ -5,9 +5,9 @@ import { BsTwitterX } from "react-icons/bs";
 const Footer = () => {
   return (
     <footer className="bg-[#f40000] mt-8">
-      <div className="grid grid-cols-3">
+      <div className="custom-width grid grid-cols-3">
         <div>
-          <h2>Quick Links</h2>
+          <h2 className="text-white font-bold mb-2">Quick Links</h2>
           <ul className="text-white">
             {NavItems.map((item, index) => (
               <li key={index}>
@@ -18,19 +18,21 @@ const Footer = () => {
         </div>
 
         <div>
-          <h2>Follow Mattress Home</h2>
-          <ul className="text-white flex">
+          <h2 className="text-white">Follow Mattress Home</h2>
+          <ul className="text-white flex items-center gap-4">
             {SocialItems.map((social, index) => (
               <li key={index}>
-                <Link to={social.url}>{social.icon}</Link>
+                <Link to={social.url} className="text-3xl">
+                  {social.icon}
+                </Link>
               </li>
             ))}
           </ul>
         </div>
 
         <div>
-          <h2>About Us</h2>
-          <p>
+          <h2 className="text-white font-bold mb-2">About Us</h2>
+          <p className="text-white">
             Mattress Home is dedicated to providing quality and affordable
             mattresses for your best rest. Our mission is to ensure that
             everyone can enjoy a good night's sleep with our wide range of
