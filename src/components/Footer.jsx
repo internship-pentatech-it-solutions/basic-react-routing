@@ -42,7 +42,7 @@ const Footer = () => {
       </div>
       <div className="bg-slate-800 text-white flex gap-8 justify-center">
         <p>developed by Lord Baah</p>
-        <a href="https://github.com/lordbaah">Follow me on Github</a>
+        <a href="/https://github.com/lordbaah">Follow me on Github</a>
       </div>
     </footer>
   );
