@@ -3,13 +3,13 @@ import contact_img from "../assets/images/helpdesk1.png";
 const Contact = () => {
   return (
     <section className="mt-[10rem]">
-      <div className="custom-width grid gap-8 items-center grid-cols-1 lg:grid-cols-2">
+      <div className="custom-width grid gap-8  grid-cols-1 lg:grid-cols-2">
         {/* Contact Information Section */}
         <div className="relative">
           <img
             src={contact_img}
             alt="Contact us"
-            className="w-full h-auto object-cover rounded-lg"
+            className="w-full object-cover rounded-lg"
           />
           <div className="absolute bottom-4 left-4 bg-white bg-opacity-80 p-4 rounded-lg shadow-lg">
             <ul className="text-gray-700 space-y-2">
@@ -20,12 +20,11 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Contact Form Section */}
-        <div className="p-6 bg-white rounded-lg shadow-lg">
+        <div className="p-6 h-max bg-white rounded-lg shadow-lg">
           <h1 className="text-2xl font-bold text-gray-800 mb-6">
             Send Us A Message
           </h1>
-          <form className="space-y-4">
+          <form className="">
             <div>
               <label
                 htmlFor="name"
