@@ -48,7 +48,7 @@ const Shop = () => {
   if (loading) return <Loader />;
   if (error)
     return (
-      <div>
+      <div className="custom-width">
         <p>{error}</p>
       </div>
     );
