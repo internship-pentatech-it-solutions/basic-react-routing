@@ -9,8 +9,8 @@ const ProductCard = ({ product }) => {
   const category = categories.find((cat) => cat.id === product.category_id);
 
   return (
-    <div className="relative max-w-[300px]">
-      <div className="font-semibold absolute top-0 right-0">
+    <div className="relative max-w-[350px] grid gap-2">
+      <div className="font-semibold absolute top-0 right-0 bg-red-500 text-white py-2 px-4">
         {category ? category.name : ""}
       </div>
       <div className="h-[200px]">
@@ -23,7 +23,7 @@ const ProductCard = ({ product }) => {
       <h2 className="mt-2">{product.name}</h2>
       <Link
         to={`/product/${product.id}`}
-        className="text-blue-500 hover:underline">
+        className="inline-block py-2 px-4 w-max bg-red-600 text-white rounded hover:bg-red-700">
         View Product
       </Link>
     </div>

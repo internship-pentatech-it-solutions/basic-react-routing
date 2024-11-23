@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useProductContext } from "../context/ProductContext";
 import ProductCard from "../components/ProductCard";
+import Loader from "../components/Loader";
 
 const Shop = () => {
   const { products, fetchProducts, categories, error, loading } =
@@ -44,18 +45,26 @@ const Shop = () => {
     setCurrentPage(1);
   };
 
+  if (loading) return <Loader />;
+  if (error)
+    return (
+      <div>
+        <p>{error}</p>
+      </div>
+    );
+
   return (
     <section className="mt-[10rem]">
-      <div className="custom-width">
+      <div className="custom-width flex flex-col items-center">
         {/* Category Filter */}
-        <div>
+        <div className="w-full mb-8 grid grid-cols-2 gap-4 md:grid-cols-4">
           {categories.map((category) => (
             <button
               key={category.id}
               onClick={() => handleCategoryChange(category)}
-              className={`px-4 py-2 mx-2 ${
+              className={`px-4 py-2 ${
                 selectedCategory?.id === category.id
-                  ? "bg-blue-500 text-white"
+                  ? "bg-[#f40000] text-white"
                   : "bg-gray-200"
               } rounded`}>
               {category.name}
@@ -69,11 +78,11 @@ const Shop = () => {
           ))}
         </div>
 
-        <div className="flex justify-center mt-4">
+        <div className="flex justify-center mt-8">
           <button
             onClick={handlePrevious}
             disabled={currentPage === 1}
-            className="px-4 py-2 bg-gray-300 text-black rounded-l">
+            className="inline-block px-4 py-2 bg-gray-300 text-black rounded-l">
             Previous
           </button>
 
@@ -83,9 +92,9 @@ const Shop = () => {
               <button
                 key={index + 1}
                 onClick={() => handlePageChange(index + 1)}
-                className={`px-4 py-2 mx-1 rounded-full ${
+                className={`inline-block px-4 py-2 mx-1 rounded-full ${
                   currentPage === index + 1
-                    ? "bg-blue-500 text-white"
+                    ? "bg-red-500 text-white"
                     : "bg-gray-200"
                 }`}>
                 {index + 1}
@@ -96,7 +105,7 @@ const Shop = () => {
           <button
             onClick={handleNext}
             disabled={currentPage === totalPages}
-            className="px-4 py-2 bg-gray-300 text-black rounded-r">
+            className="inline-block px-4 py-2 bg-gray-300 text-black rounded-r">
             Next
           </button>
         </div>

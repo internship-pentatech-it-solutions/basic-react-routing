@@ -4,8 +4,8 @@ import { BsTwitterX } from "react-icons/bs";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#f40000] mt-8">
-      <div className="custom-width grid grid-cols-3">
+    <footer className="bg-[#f40000]  mt-8">
+      <div className="custom-width grid grid-cols-1 gap-6 lg:grid-cols-3 py-8">
         <div>
           <h2 className="text-white font-bold mb-2">Quick Links</h2>
           <ul className="text-white">
@@ -39,6 +39,10 @@ const Footer = () => {
             products.
           </p>
         </div>
+      </div>
+      <div className="bg-slate-800 text-white flex gap-8 justify-center">
+        <p>developed by Lord Baah</p>
+        <a href="https://github.com/lordbaah">Follow me on Github</a>
       </div>
     </footer>
   );

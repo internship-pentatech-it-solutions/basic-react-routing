@@ -105,39 +105,25 @@ const HomeSlider = () => {
         <motion.button
           variants={slidersVariants}
           whileHover="hover"
-          className="size-7 rounded-[50%] flex items-center justify-center absolute left-0 top-[50%] bg-[rgb(117,106,103)]"
+          className="size-7 rounded-[50%] flex items-center justify-center absolute left-[20px] top-[50%] bg-[rgb(117,106,103)]"
           onClick={handlePrevious}>
-          {/* <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="20"
-            viewBox="0 96 960 960"
-            width="20">
-            <path d="M400 976 0 576l400-400 56 57-343 343 343 343-56 57Z" />
-          </svg> */}
           <IoIosArrowBack className="text-white" />
         </motion.button>
 
         <motion.button
           variants={slidersVariants}
           whileHover="hover"
-          className="size-7 rounded-[50%] flex items-center justify-center absolute right-0 top-[50%] bg-[rgb(117,106,103)]"
+          className="size-7 rounded-[50%] flex items-center justify-center absolute right-[20px] top-[50%] bg-[rgb(117,106,103)]"
           onClick={handleNext}>
-          {/* <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="20"
-            viewBox="0 96 960 960"
-            width="20">
-            <path d="m304 974-56-57 343-343-343-343 56-57 400 400-400 400Z" />
-          </svg> */}
           <IoIosArrowForward className="text-white" />
         </motion.button>
       </div>
 
-      <div className="flex justify-center items-center gap-4 w-full absolute bottom-0">
+      <div className="flex justify-center items-center gap-4 w-full h-full absolute bottom-0">
         {images.map((_, index) => (
           <motion.div
             key={index}
-            className={`bg-slate-400 size-4 rounded-[50%] ${
+            className={`bg-slate-400 size-2 rounded-[50%] ${
               currentIndex === index ? "bg-red-600" : ""
             }`}
             onClick={() => handleDotClick(index)}

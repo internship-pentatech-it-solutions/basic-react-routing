@@ -22,7 +22,7 @@ const Navbar = () => {
       <div className="">
         <ul className="flex gap-4 justify-center">
           {NavItems.map((item, index) => (
-            <li key={index} className="">
+            <li key={index} className="text-base">
               <NavLink
                 to={item.url}
                 className={({ isActive }) =>
